@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>个性化视频推荐系统</title>
+
+    <link th:href="@{/static/css/style.css}" rel="stylesheet">
+    <link th:href="@{/static/css/style-responsive.css}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/js/html5shiv.js}"></script>
+    <script th:src="@{/static/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div th:replace="common/left-side :: left-side"></div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div th:replace="common/header-section :: header-section"></div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div th:replace="common/Recommendation :: Recommendation">
+                    </div>
+                </div>
+            </div>
+            <!--body wrapper end-->
+
+        </div>
+        <!-- main content end-->
+    </div>
+</section>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script th:src="@{/static/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/static/js/jquery-ui-1.9.2.custom.min.js}"></script>
+<script th:src="@{/static/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/modernizr.min.js}"></script>
+<script th:src="@{/static/js/jquery.nicescroll.js}"></script>
+
+<script th:src="@{/static/js/jquery.isotope.js}"></script>
+
+<!--common scripts for all pages-->
+<script th:src="@{/static/js/scripts.js}"></script>
+<script th:src="@{/static/modules/common/js/common.js}"></script>
+<script th:src="@{/static/modules/index/js/index.js}"></script>
+
+
+<script type="text/javascript">
+    $(function () {
+        userInfo = $("#userInfo").val();
+
+        var $container = $('#gallery');
+        $container.isotope({
+            itemSelector: '.item',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
+
+        // filter items when filter link is clicked
+        $('#filters a').click(function () {
+            var selector = $(this).attr('data-filter');
+            $container.isotope({filter: selector});
+            return false;
+        });
+    });
+</script>
+
+</body>
+</html>

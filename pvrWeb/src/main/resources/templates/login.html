@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="LinuY">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>Login</title>
+
+    <link th:href="@{/static/css/style.css}" rel="stylesheet">
+    <!-- 响应式样式 -->
+    <link th:href="@{/static/css/style-responsive.css}" rel="stylesheet">
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form id="form-signin" class="form-signin" action="/login/toLogin" method="post">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">Sign In</h1>
+        </div>
+        <div class="login-wrap">
+            <input name="username" type="text" class="form-control" placeholder="用户名" autofocus>
+            <input name="password" type="password" class="form-control" placeholder="密码">
+
+            <button class="btn btn-lg btn-login btn-block" type="button" onclick="submitLoginInfo()" th:text="登录">
+            </button>
+
+            <div class="registration">
+                还没有账号?
+                <a class="" href="../registry">
+                    去注册
+                </a>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div style="display: none" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal"
+             class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">忘记了密码 ?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>输入您的电子邮件地址重新设置您的密码.</p>
+                        <input type="text" name="email" placeholder="邮箱" autocomplete="off"
+                               class="form-control placeholder-no-fix">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">取消</button>
+                        <button class="btn btn-primary" type="button">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+
+    </form>
+
+</div>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script th:src="@{/static/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/modernizr.min.js}"></script>
+<script th:src="@{/static/modules/common/js/common.js}"></script>
+<script th:src="@{/static/modules/login/js/login.js}"></script>
+
+</body>
+</html>

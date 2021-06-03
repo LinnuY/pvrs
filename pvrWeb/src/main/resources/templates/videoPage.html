@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title th:text="${video.title}"></title>
+
+    <link th:href="@{/static/css/style.css}" rel="stylesheet">
+    <link th:href="@{/static/css/style-responsive.css}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/static/js/html5shiv.js}"></script>
+    <script th:src="@{/static/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <input id="videoPageId" th:value="${video.id}" hidden>
+    <!-- left side start-->
+    <div th:replace="common/left-side :: left-side"></div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div th:replace="common/header-section :: header-section"></div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+        <section class="wrapper">
+            <!-- page start-->
+
+            <div class="row">
+                <div class="col-md-8">
+                    <section class="panel">
+                        <div class="wrapper">
+                            <div class="row">
+                                <header class="panel-heading" th:text="${video.title}">
+                                </header>
+                                <div class="col-sm-12">
+                                    <video width="720" height="405" muted controls autoplay="autoplay"
+                                           style="display:block;margin:0 auto">
+                                        <source th:src="${video.videoURI}" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right; padding-right: 50px">
+                            <a onclick="likes()" style="padding-right: 20px">
+                                <img width="28" height="20" id="isLikeImg"
+                                     th:src="${isLike} ? '/static/modules/video/svg/likes.svg' : '/static/modules/video/svg/like.svg'">
+                                <span>点赞</span>
+                            </a>
+
+                            <a onclick="saves()">
+                                <img width="28" height="20" id="isSaveImg"
+                                     th:src="${isSave} ? '/static/modules/video/svg/saves.svg' : '/static/modules/video/svg/save.svg'">
+                                <span>收藏</span>
+                            </a>
+                        </div>
+                        <h3 th:text="${video.videoName}">告白气球</h3>
+                        <textarea style="width: 100%;height: 100%;overflow:hidden; resize:none;" class="form-control"
+                                  rows="15" readonly="readonly"
+                                  th:text="${video.description}">
+                                </textarea>
+                    </section>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <section class="panel">
+                            <div class="wrapper">
+                                <div th:replace="common/Recommendation :: RightRecommendation"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+            <!-- page end-->
+        </section>
+        <!--body wrapper end-->
+
+
+    </div>
+
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script th:src="@{/static/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/static/js/jquery-ui-1.9.2.custom.min.js}"></script>
+<script th:src="@{/static/js/jquery-migrate-1.2.1.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/modernizr.min.js}"></script>
+<script th:src="@{/static/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/static/modules/video/js/video.js}"></script>
+
+
+<!--common scripts for all pages-->
+<script th:src="@{/static/js/scripts.js}"></script>
+
+</body>
+</html>

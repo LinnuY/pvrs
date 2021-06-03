@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>新用户注册</title>
+
+    <link th:href="@{/static/css/style.css}" rel="stylesheet">
+    <link th:href="@{/static/css/style-responsive.css}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script th:href="@{/static/js/html5shiv.js}"></script>
+    <script th:href="@{/static/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body">
+
+<div class="container">
+
+    <form class="form-signin" >
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">Sign Up</h1>
+<!--            <img src="images/login-logo.png" alt=""/>-->
+        </div>
+
+
+        <div class="login-wrap">
+            <p>输入您的个人信息</p>
+            <input name="nickname" type="text" autofocus="" placeholder="昵称" class="form-control">
+            <input name="address" type="text" autofocus="" placeholder="地址" class="form-control">
+            <input name="email" type="text" autofocus="" placeholder="邮箱" class="form-control">
+            <div class="radios">
+                <label for="radio-01" class="label_radio col-lg-6 col-sm-6">
+                    <input type="radio" checked="" value="1" id="radio-01" name="sexRadio"> 男
+                </label>
+                <label for="radio-02" class="label_radio col-lg-6 col-sm-6">
+                    <input type="radio" value="0" id="radio-02" name="sexRadio"> 女
+                </label>
+            </div>
+
+            <p>输入您的帐户详细信息如下</p>
+            <input name="username" type="text" autofocus="" placeholder="用户名" class="form-control">
+            <input name="password" type="password" placeholder="密码" class="form-control">
+            <input name="confirmPassword" type="password" placeholder="确认密码" class="form-control">
+            <input name="phone" type="text" placeholder="联系电话" class="form-control">
+            <label class="checkbox">
+                <input type="checkbox" value="agree this condition"> 我同意服务条款和隐私政策
+            </label>
+            <button type="button" class="btn btn-lg btn-login btn-block" onclick="submitUserInfo()">
+                <i class="fa fa-check"></i>
+            </button>
+
+            <div class="registration">
+                已经注册。
+                <a href="/login" class="">
+                    去登陆
+                </a>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script th:src="@{/static/modules/registration/js/registry.js}"></script>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script th:src="@{/static/js/jquery-1.10.2.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/modernizr.min.js}"></script>
+
+
+</body>
+</html>

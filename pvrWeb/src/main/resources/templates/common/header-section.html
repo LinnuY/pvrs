@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="header-section" th:fragment="header-section">
+
+    <!--toggle button start-->
+    <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+    <!--toggle button end-->
+
+    <!--search start-->
+    <form class="searchform" action="" method="post">
+        <input type="text" class="form-control" name="keyword" placeholder="Search here..."/>
+    </form>
+    <!--search end-->
+
+    <input type="hidden" th:value="${user}" id="userInfo">
+    <input type="hidden" th:value="${user.username}" id="userName">
+    <input type="hidden" th:value="${user.userId}" id="userId">
+    <!--notification menu start -->
+    <div class="menu-right">
+        <ul class="notification-menu">
+            <li>
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <img th:src="${user.headPUrl == null}?'/static/images/photos/user-avatar.png'" alt=""
+                         th:text="${user.nickname}"/>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                    <li><a href="/video/upload"><i class="fa fa-user"></i> 上传视频</a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> 设置</a></li>
+                    <li><a href="/login/logout"><i class="fa fa-sign-out"></i>退出登录</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!--notification menu end -->
+
+</div>
+
+</body>
+</html>

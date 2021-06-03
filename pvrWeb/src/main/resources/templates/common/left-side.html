@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="left-side sticky-left-side" th:fragment="left-side">
+
+    <!--logo and iconic logo start-->
+    <div class="logo">
+        <!--            <a href="index"><img src="/static/images/logo.png" alt=""></a>-->
+    </div>
+
+    <div class="logo-icon text-center">
+        <a href="index"><img src="/static/images/logo_icon.png" alt=""></a>
+    </div>
+    <!--logo and iconic logo end-->
+
+
+    <div class="left-side-inner">
+
+        <!-- visible to small devices only -->
+        <!--sidebar nav start-->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+            <li><a href="/index"><i class="fa fa-home"></i> <span>首页</span></a></li>
+
+            <li><a href="/index"><i class="fa fa-bullhorn"></i> <span>推荐</span></a></li>
+
+            <li><a href="/video/upload"><i class="fa fa-laptop"></i> <span>上传视频</span></a></li>
+
+            <li><a href="/history"><i class="fa fa-tasks"></i> <span>观看记录</span></a></li>
+
+            <li><a href="/login/logout"><i class="fa fa-sign-in"></i> <span>退出登录</span></a></li>
+
+        </ul>
+        <!--sidebar nav end-->
+
+    </div>
+</div>
+</body>
+</html>

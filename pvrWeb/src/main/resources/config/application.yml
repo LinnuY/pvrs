@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: pvrs
+  datasource:
+    url: jdbc:mysql://192.168.106.1/pvr?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+    username: root
+    password: lldeai0221
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: false
+    open-in-view: false
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    excluded-view-names:
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    template-resolver-order:
+  mvc:
+    static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+server:
+  port: 8001
+logging:
+  file:
+    name: ../logs/pvsr.log
+
+hdfs:
+  path: hdfs://arch1:8020
+  username: passenger

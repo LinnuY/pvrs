@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<section class="panel" th:fragment="Recommendation">
+    <header class="panel-heading">
+        热门推荐
+    </header>
+    <div class="panel-body">
+        <div id="gallery" class="media-gal">
+            <div class=" video item " th:each="video : ${videoList}" style="width: 245px">
+                <a th:href="'/video?videoId='+${video.id}" data-toggle="modal">
+                    <img th:src="${video.coverImageURI}" alt="" style="width: 240px; height: 145px"/>
+                </a>
+                <p th:href="'/video?videoId='+${video.id}" th:text="${video.title}" style="width: 240px"></p>
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <!-- modal -->
+
+    </div>
+</section>
+
+<section class="panel" th:fragment="RightRecommendation">
+    <header class="panel-heading">
+        热门推荐
+    </header>
+    <div class="panel-body">
+        <div id="gallery" class="media-gal">
+            <div class=" video item " th:each="video : ${videoList}" style="width: 245px; display:block;margin:0 auto">
+                <a th:href="'/video?videoId='+${video.id}" data-toggle="modal">
+                    <img th:src="${video.coverImageURI}" alt="" style="width: 240px; height: 145px"/>
+                </a>
+                <p th:href="'/video?videoId='+${video.id}" th:text="${video.title}" style="width: 240px"></p>
+            </div>
+
+        </div>
+
+        <!-- Modal -->
+        <!-- modal -->
+
+    </div>
+</section>

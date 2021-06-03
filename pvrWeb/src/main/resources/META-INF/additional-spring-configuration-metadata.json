@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "hdfs.path",
+      "type": "java.lang.String",
+      "description": "Description for hdfs.path."
+    },
+    {
+      "name": "hdfs.username",
+      "type": "java.lang.String",
+      "description": "Description for hdfs.username."
+    }
+  ] }
